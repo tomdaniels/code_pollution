@@ -28,8 +28,6 @@ class GitHubLanguageStats:
         totals = defaultdict(int)
         for languages in language_dicts:
             for language, bytes in languages.items():
-                if language == 'Makefile':
-                    language = 'C++'
                 totals[language] += bytes
         return totals
 
