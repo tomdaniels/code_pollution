@@ -9,7 +9,7 @@ You need:
 
 ## Get Started
 
-Clone or download the repository and install the requirements.txt with `pip`. Run the script with your PAT via command line args:
+Clone or download the repository and install the requirements.txt with `pip`. Run the script with your username & PAT via command line args:
 
 ```bash
 usage: main.py [-h] [-u USERNAME] [-t TOKEN] [-i IGNORE [IGNORE ...]]
@@ -17,7 +17,7 @@ usage: main.py [-h] [-u USERNAME] [-t TOKEN] [-i IGNORE [IGNORE ...]]
 Code pollution detector; how many bytes have you written?
 
 options:
-  -h, --help            show this help message and exit
+  -h --help            show this help message and exit
   -u USERNAME, --username USERNAME
                         Your GitHub username
   -t TOKEN, --token TOKEN
