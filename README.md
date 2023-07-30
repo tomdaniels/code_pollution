@@ -2,19 +2,24 @@
 
 Uses the public GitHub API to determine the total number of bytes you have written in each programming language by looking through all of your github repositories.
 
-You need your [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) (this helps with rate limiting for folks with alot of repos) and can also provide an ignore_list. Some workspaces should be filtered out as they do get returned from the Github `/repos` endpoint, but will throw an exception on the `/languages` endpoint. If that happens, just add the repository name from the endpoint stacktrace after the `-i` flag.
+You need:
+
+- `-u` username (github)
+- `-t` [PersonalAccessToken](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) _helps with rate limiting_.
 
 ## Get Started
 
 Clone or download the repository and install the requirements.txt with `pip`. Run the script with your PAT via command line args:
 
 ```bash
-usage: main.py [-h] [-t TOKEN] [-i IGNORE [IGNORE ...]]
+usage: main.py [-h] [-u USERNAME] [-t TOKEN] [-i IGNORE [IGNORE ...]]
 
 Code pollution detector; how many bytes have you written?
 
 options:
   -h, --help            show this help message and exit
+  -u USERNAME, --username USERNAME
+                        Your GitHub username
   -t TOKEN, --token TOKEN
                         Your GitHub Pesonal Access Token (PAT)
   -i IGNORE [IGNORE ...], --ignore IGNORE [IGNORE ...]
@@ -32,3 +37,9 @@ bytes_written = {
   'C#': 8352, 'Less': 2723, 'Kotlin': 11464,
   'Dockerfile': 384, 'Python': 3253, 'TypeScript': 146401}
 ```
+
+---
+
+#### Exceptions
+
+**`--ignore` is only helpful if you have any [CodeSpace](https://github.com/features/codespaces) projects.**
