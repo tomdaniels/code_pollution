@@ -2,7 +2,7 @@
 
 Uses the public GitHub API to determine the total number of bytes you have written in each programming language by looking through all of your github repositories.
 
-You need your PAT (this helps with rate limiting for folks with alot of repos) and can also provide an ignore_list. Some workspaces should be filtered out as they do get returned from the Github `/repos` endpoint, but will throw an exception on the `/languages` endpoint. If that happens, just add the repository name from the endpoint stacktrace after the `-i` flag.
+You need your [PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) (this helps with rate limiting for folks with alot of repos) and can also provide an ignore_list. Some workspaces should be filtered out as they do get returned from the Github `/repos` endpoint, but will throw an exception on the `/languages` endpoint. If that happens, just add the repository name from the endpoint stacktrace after the `-i` flag.
 
 ## Get Started
 
