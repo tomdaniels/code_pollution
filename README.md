@@ -1,16 +1,25 @@
-# Language Stats
+# Code pollution detector
 
-Uses public GitHub API's to determine the total number of bytes you have written in each programming language by looking through all of your github projects.
+Uses the public GitHub API to determine the total number of bytes you have written in each programming language by looking through all of your github repositories.
 
-Clone the repository and install the requirements.txt with `pip`. Run the script with your PAT via command line args:
+You need your PAT (this helps with rate limiting for folks with alot of repos) and can also provide an ignore_list. Some workspaces should be filtered out as they do get returned from the Github `/repos` endpoint, but will throw an exception on the `/languages` endpoint. If that happens, just add the repository name from the endpoint stacktrace after the `-i` flag.
+
+## Get Started
+
+Clone or download the repository and install the requirements.txt with `pip`. Run the script with your PAT via command line args:
 
 ```bash
-python .main.py -t <YOUR_PAT>
+usage: main.py [-h] [-t TOKEN] [-i IGNORE [IGNORE ...]]
+
+Code pollution detector; how many bytes have you written?
+
+options:
+  -h, --help            show this help message and exit
+  -t TOKEN, --token TOKEN
+                        Your GitHub Pesonal Access Token (PAT)
+  -i IGNORE [IGNORE ...], --ignore IGNORE [IGNORE ...]
+                        An ignore list of repository names
 ```
-
-For users with huge repository numbers the calls will be quite expensive, using your PAT increases the rate limit to 5000 an hour I think so it should be safe but that's why it's asking for your PAT.
-
-Script also supports `ignore_repos`, for example some "workspace"'s count as a repository but are not valid requests for the `/repos` endpoint. The script might crash if that happens but the repo name will be in the url so run it again with `-i <REPO_NAME>`. It can support a list of names too.
 
 ### What you get:
 
