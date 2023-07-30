@@ -34,7 +34,7 @@ class GitHubLanguageStats:
                 totals[language] += bytes
         return totals
 
-    def fetch_languages(self):
+    def fetch_language_bytes(self):
         self.spinner.start()
         repos = self.fetch_repos()
         language_dicts = [self.fetch_repo_languages(repo) for repo in repos]
