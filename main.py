@@ -11,7 +11,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-    stats = GitHubLanguageStats(username=args.username, token=args.token, ignore_list=args.ignore)
+    stats = GitHubLanguageStats(args)
     print(stats.fetch_languages())
 
 if __name__ == "__main__":

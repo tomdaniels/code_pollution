@@ -6,10 +6,10 @@ from halo import Halo
 class GitHubLanguageStats:
     BASE_URL = 'https://api.github.com'
 
-    def __init__(self, username, token, ignore_list=None):
-        self.username = username
-        self.ignore_list = ignore_list or []
-        self.token = token
+    def __init__(self, args):
+        self.username = args.username
+        self.token = args.token
+        self.ignore_list = args.ignore or []
         self.spinner = Halo(text='Fetching and calculating...', spinner='dots')
         self.headers = {'Authorization': f'token {self.token}'}
 
