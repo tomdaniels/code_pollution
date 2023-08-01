@@ -1,13 +1,12 @@
 import argparse
 
-from functools import partial
 from language_stats import GitHubLanguageStats
 
-description = "Code pollution detector; how many bytes have you written?"
+description = "Code pollution detector; how many bytes do you do?"
 
 def parse_args():
     parser = argparse.ArgumentParser(description)
-    add_argument = partial(parser.add_argument)
+    add_argument = parser.add_argument
 
     add_argument('-u', '--username', default='', help='Your GitHub username')
     add_argument('-t', '--token',    default='', help='Your GitHub Pesonal Access Token (PAT)')
