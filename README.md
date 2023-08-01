@@ -14,7 +14,7 @@ Clone or download the repository and install the requirements.txt with `pip`. Ru
 ```bash
 usage: main.py [-h] [-u USERNAME] [-t TOKEN] [-i IGNORE [IGNORE ...]]
 
-Code pollution detector; how many bytes have you written?
+Code pollution detector; how many bytes do you do?
 
 options:
   -h --help            show this help message and exit
