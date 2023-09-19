@@ -13,19 +13,22 @@ class GitHubLanguageStats:
         self.spinner = Halo(text='Fetching and calculating...', spinner='dots')
         self.headers = {'Authorization': f'token {self.token}'}
 
-    def fetch_data(self, url):
+    def fetch_json(self, url):
         response = requests.get(url, headers=self.headers)
         response.raise_for_status()
         return response.json()
 
     def fetch_repos(self):
-        url = f'{self.BASE_URL}/user/repos?per_page=100'
-        repos = self.fetch_data(url)
-        return [repo['name'] for repo in repos if repo['name'] not in self.ignore_list]
+        repos = self.fetch_json(f'{self.BASE_URL}/user/repos?per_page=100')
+        filtered_repos = [];
+        for repo in repos:
+            if repo["name"] not in self.ignore_list:
+                filtered_repos.append(repo["name"])
+        return filtered_repos;
 
     def fetch_repo_languages(self, repo_name):
         url = f'{self.BASE_URL}/repos/{self.username}/{repo_name}/languages'
-        return self.fetch_data(url)
+        return self.fetch_json(url)
 
     def aggregate_languages(self, language_dicts):
         totals = defaultdict(int)
