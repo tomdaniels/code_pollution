@@ -42,4 +42,5 @@ bytes_written = {
 
 #### Exceptions
 
-**`--ignore` is only helpful if you have any [CodeSpace](https://github.com/features/codespaces) projects.**
+- `--ignore` is helpful for **codespace** projects, and any **repositories owned by other users that you have not forked**.
+    - _If the script crashes due to a specific repo name (which will be in the stack trace), append it to this ignore list and try again._
